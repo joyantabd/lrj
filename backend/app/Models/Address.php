@@ -1,0 +1,56 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Address extends Model
+{
+    use HasFactory;
+    protected $fillable = ['address','addressable_id','addressable_type','status','landmark','division_id','district_id','area_id','type'];
+    const STATUS_ACTIVE = 1;
+    const STATUS_INACTIVE = 0;
+    const SUPPLIER_ADDRESS = 1;
+    const CUSTOMER_PRESENT_ADDRESS = 2;
+    const CUSTOMER_PERMANENT_ADDRESS = 3;
+
+    public function prepareData (array $input)
+    {
+        $address['address'] = $input['address'] ?? '';
+        $address['landmark'] = $input['landmark'] ?? '';
+        $address['division_id'] = $input['division_id'] ?? '';
+        $address['district_id'] = $input['district_id'] ?? '';
+        $address['area_id'] = $input['area_id'] ?? '';
+        $address['status'] = self::STATUS_ACTIVE;
+        $address['type'] = self::SUPPLIER_ADDRESS;
+
+
+        return $address;
+    }
+
+    public function deleteAddressBySupplierId($supplier) {
+        
+
+        return $supplier->address()->delete();
+        
+    }
+
+    public function addressable()
+    {
+        return $this->morphTo();
+    }
+
+    public function division()
+    {
+        return $this->belongsTo(Division::class);
+    }
+    public function district()
+    {
+        return $this->belongsTo(District::class);
+    }
+    public function area()
+    {
+        return $this->belongsTo(Area::class);
+    }
+}

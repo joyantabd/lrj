@@ -1,0 +1,328 @@
+@import "mixin";
+
+
+#login {}
+
+.theme-button {
+    background-color: black;
+    border: 1 px solid white;
+
+    a {
+        color: white;
+        text-decoration: none;
+    }
+
+    &:hover {
+        a {
+            color: black !important;
+        }
+
+        background: white !important;
+        border: 1px solid white;
+    }
+}
+
+.aspect-one {
+    aspect-ratio: 1/1 !important;
+    object-fit: cover;
+}
+
+.aspect-two {
+    aspect-ratio: 1/1.25 !important;
+}
+
+label {
+    position: relative;
+
+    .login-error-msg {
+        position: relative;
+        color: red;
+        text-shadow: 0 0 8px white;
+    }
+}
+
+.my-table {
+    font-size: 14px;
+
+    th,
+    td {
+        vertical-align: middle;
+    }
+
+    p {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.w-40 {
+    width: 40px;
+}
+
+.product-table {
+    font-size: 12px;
+
+}
+
+.table-image {
+    width: 75px;
+    cursor: pointer;
+}
+
+.search-are {
+    font-size: 14px;
+}
+
+
+.loader {
+    width: 1005;
+    height: 75px;
+    position: relative;
+
+    img {
+        justify-content: center
+    }
+}
+
+.no-data-found-container {
+    width: 100%;
+    min-height: 40px;
+
+    .no-data-found {
+        position: absolute;
+        text-align: center;
+    }
+}
+
+.small-button {
+    border: none;
+    background: black;
+    border-radius: 5px;
+    padding: 2px 6px 2px 6px;
+    color: white;
+
+    &:hover {
+        background: blue;
+    }
+}
+
+.value-container-parent {
+    width: 312px;
+    display: flex;
+    flex-wrap: wrap;
+
+    .value-container {
+        position: relative;
+        width: 100px;
+        background: purple;
+        margin: 2px;
+        border-radius: 5px;
+        text-align: center;
+        color: white;
+        line-height: 40px;
+        font-weight: bolder;
+        transition: display 0.3s ease-in-out;
+        cursor: pointer;
+
+        &:hover .value-button {
+            display: block;
+        }
+
+        &:hover .value {
+            display: none;
+        }
+
+        .value-button {
+            width: 100px;
+            display: none;
+        }
+
+        .value {
+            width: 100px;
+        }
+
+        button {
+            border: 0;
+            padding: 0 6px 0 6px;
+            font-size: 13px;
+            color: white;
+            border-radius: 3px;
+            line-height: 24px;
+            margin: 2px;
+
+            &:hover {
+                color: black;
+            }
+        }
+
+    }
+
+}
+
+.product-upload-container {
+    width: 150px;
+    height: 150px;
+    border: 1px solid silver;
+    margin: 0 auto;
+    position: relative;
+    border-radius: 10px;
+    background: violet;
+
+    .icon {
+        @include center;
+        color: white;
+        cursor: pointer;
+
+
+    }
+}
+
+
+.primary-photo {
+    border: 2px solid violet;
+
+    &::after {
+        content: 'Primary';
+    }
+}
+
+.preview-photo {
+    cursor: pointer;
+}
+
+.product-order-photo {
+    width: 75px;
+}
+
+.details-area {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+.customer-list {
+    margin-top: 5px;
+    padding-left: initial;
+
+    li {
+        list-style: none;
+        padding: 3px 0;
+        cursor: pointer;
+
+        &:hover {
+            color: red;
+        }
+    }
+}
+
+.order-product-container {
+    background: #f4e8ff;
+    border-radius: 5px;
+    margin: 5px 0;
+    border: 1px solid #e2c9f9;
+    box-shadow: 0 0 4px silver;
+}
+
+
+.quantity-button {
+    border: none;
+    background: violet;
+    border-radius: 5px;
+    padding: 0px 8px;
+    color: white;
+    margin: 0 10px;
+
+    &:disabled {
+        background: red;
+    }
+}
+
+.order-confirmation {
+    table {
+
+        th,
+        td {
+            font-size: 14px;
+        }
+    }
+
+    h4 {
+        color: orange;
+    }
+
+    p {
+        strong {
+            color: aqua;
+        }
+    }
+
+    address {
+        font-size: 14px;
+    }
+
+    .customer-details {
+        font-size: 14px;
+    }
+}
+
+.table-image {
+    width: 50px;
+}
+
+.sm-table {
+
+    th,
+    td {
+        font-size: 14px;
+    }
+}
+
+.order-details-img {
+    width: 100px;
+}
+
+.bar-code-area-wrapper {
+    box-shadow: 0 0 10px silver;
+    margin: 25px auto 25px auto;
+    width: 595px;
+    height: 842px;
+}
+
+.print-area {
+
+    padding: 36px;
+    display: flex;
+    flex-wrap: wrap;
+
+    .bar-code-items {
+        width: 33.33%;
+        padding: 18px;
+        text-align: center;
+        font-size: 14px;
+        border: 1px solid silver;
+        height: fit-content;
+    }
+
+    p {
+        margin-top: 0;
+        margin-bottom: 1px;
+    }
+}
+
+.deleted {
+    color: red;
+    text-decoration: line-through;
+    font-size: 12px;
+}
+
+.report-card {
+    box-shadow: 0 0 5px silver;
+
+    &:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+    }
+    h6,h4{
+        font-size: 100;
+    }
+}
